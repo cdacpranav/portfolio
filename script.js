@@ -49,7 +49,7 @@ function initParticles() {
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = \`hsla(\${this.hue}, 90%, 65%, \${this.opacity})\`;
+      ctx.fillStyle = `hsla(${this.hue}, 90%, 65%, ${this.opacity})`;
       ctx.fill();
     }
   }
@@ -67,7 +67,7 @@ function initParticles() {
           ctx.beginPath();
           ctx.moveTo(particles[a].x, particles[a].y);
           ctx.lineTo(particles[b].x, particles[b].y);
-          ctx.strokeStyle = \`rgba(100, 200, 255, \${0.05 * (1 - dist / 120)})\`;
+          ctx.strokeStyle = `rgba(100, 200, 255, ${0.05 * (1 - dist / 120)})`;
           ctx.lineWidth = 0.5;
           ctx.stroke();
         }
@@ -226,13 +226,13 @@ function initContactForm() {
     btn.style.opacity = '0.7';
 
     setTimeout(() => {
-      form.innerHTML = \`
+      form.innerHTML = `
         <div class="form-success">
           <div class="success-icon">✅</div>
           <h3>Message Sent!</h3>
           <p>Thank you for reaching out. I will get back to you shortly.</p>
         </div>
-      \`;
+      `;
     }, 1200);
   });
 }
