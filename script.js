@@ -149,18 +149,22 @@ function initNavbar() {
    ================================================================ */
 function initRevealAnimations() {
   const elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  if (!window.IntersectionObserver) {
+    elements.forEach(el => el.classList.add('active'));
+    return;
+  }
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
           entry.target.classList.add('active');
-        }, index * 50);
+        }, index * 30);
         observer.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -20px 0px'
+    threshold: 0.01,
+    rootMargin: '0px 0px -10px 0px'
   });
   elements.forEach(el => observer.observe(el));
 }
